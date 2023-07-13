@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Avaliar{% endblock %}
+
+{% block content %}
+<h1>Avaliar</h1>
+
+<form method="POST">
+  <div class="form-group">
+    <label for="nome">Nome:</label>
+    <select class="form-control" id="nome" name="nome">
+      {% for estudante in estudantes %}
+      <option value="{{ estudante.id }}">{{ estudante.nome }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="senha">Senha:</label>
+    <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
+  </div>
+  <div class="form-group">
+    <label for="disciplina">Disciplina:</label>
+    <select class="form-control" id="disciplina" name="disciplina">
+      {% for disciplina in disciplinas %}
+      <option value="{{ disciplina.id }}">{{ disciplina.nome }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="nota">Nota:</label>
+    <select class="form-control" id="nota" name="nota">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="comentario">Comentário:</label>
+    <textarea class="form-control" id="comentario" name="comentario" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+{% endblock %}

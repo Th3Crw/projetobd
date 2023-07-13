@@ -1,0 +1,141 @@
+=========== SQL PARA CRIAÇÃO DO BANCO DE DADOS===========
+
+====1) Criar e Usar o Banco de Dados:====
+
+CREATE DATABASE avaliacao_unb;
+
+USE avaliacao_unb;
+
+====2) Criação das Tabelas:==============
+
+CREATE TABLE Estudantes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    matricula VARCHAR(20) NOT NULL,
+    curso VARCHAR(100) NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    tipo_usuario VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Departamento (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    disciplina_id INT NOT NULL,
+    professor_id INT NOT NULL,
+    FOREIGN KEY (professor_id) REFERENCES Professores(id),
+    FOREIGN KEY (disciplina_id) REFERENCES Disciplinas(id)
+);
+
+
+CREATE TABLE Professores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    departamento_id INT NOT NULL,
+    FOREIGN KEY (departamento_id) REFERENCES Disciplinas(id)
+    
+);
+
+CREATE TABLE Disciplinas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(100) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    departamento_id INT NOT NULL,
+    FOREIGN KEY (departamento_id) REFERENCES Disciplinas(id)
+);
+
+CREATE TABLE Turmas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    disciplina_id INT NOT NULL,
+    professor_id INT NOT NULL,
+    semestre VARCHAR(20) NOT NULL,
+    FOREIGN KEY (disciplina_id) REFERENCES Disciplinas(id),
+    FOREIGN KEY (professor_id) REFERENCES Professores(id)
+);
+
+CREATE TABLE Avaliacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    estudante_id INT NOT NULL,
+    turma_id INT NOT NULL,
+    nota int NOT NULL,
+    comentario TEXT,
+    FOREIGN KEY (estudante_id) REFERENCES Estudantes(id),
+    FOREIGN KEY (turma_id) REFERENCES Turmas(id)
+);
+
+CREATE TABLE Denuncias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    avaliacao_id INT NOT NULL,
+    estudante_id INT NOT NULL,
+    motivo VARCHAR(100) NOT NULL,
+    avaliada BOOLEAN DEFAULT 0,
+    FOREIGN KEY (avaliacao_id) REFERENCES Avaliacoes(id),
+    FOREIGN KEY (estudante_id) REFERENCES Estudantes(id)
+);
+====3) Popular o Banco de Dados==========
+
+-- Populando a tabela Estudantes
+INSERT INTO Estudantes (nome, email, matricula, curso, senha, tipo_usuario)
+VALUES ('João Silva', 'joao.silva@example.com', '20230001', 'Engenharia', 'senha123', 'Estudante');
+
+INSERT INTO Estudantes (nome, email, matricula, curso, senha, tipo_usuario)
+VALUES ('Maria Santos', 'maria.santos@example.com', '20230002', 'Ciências da Computação', 'senha456', 'Estudante');
+
+INSERT INTO Estudantes (nome, email, matricula, curso, senha, tipo_usuario)
+VALUES ('Carlos Ferreira', 'carlos.ferreira@example.com', '20230003', 'Administração', 'senha789', 'Administrador');
+
+
+-- Populando a tabela Departamento
+INSERT INTO Departamento (nome)
+VALUES ('Departamento de Engenharia');
+
+INSERT INTO Departamento (nome)
+VALUES ('Departamento de Ciências da Computação');
+
+INSERT INTO Departamento (nome)
+VALUES ('Departamento de Administração');
+
+
+-- Populando a tabela Professores
+INSERT INTO Professores (nome, departamento_id)
+VALUES ('Prof. Silva', 1);
+
+INSERT INTO Professores (nome, departamento_id)
+VALUES ('Prof. Pedro', 2);
+
+INSERT INTO Professores (nome, departamento_id)
+VALUES ('Prof. Costa', 3);
+
+
+-- Populando a tabela Disciplinas
+INSERT INTO Disciplinas (codigo, nome, departamento_id)
+VALUES ('ENG101', 'Introdução à Engenharia', 1);
+
+INSERT INTO Disciplinas (codigo, nome, departamento_id)
+VALUES ('CIC0097', 'Banco de Dados', 2);
+
+INSERT INTO Disciplinas (codigo, nome, departamento_id)
+VALUES ('ADM301', 'Gestão Empresarial', 3);
+
+
+-- Populando a tabela Avaliacoes
+INSERT INTO Avaliacoes (estudante_id, turma_id, nota, comentario)
+VALUES (1, 1, 5, 'Ótimo professor e matéria bem estruturada.');
+
+INSERT INTO Avaliacoes (estudante_id, turma_id, nota, comentario)
+VALUES (2, 2, 5, 'Excelente curso, aprendi muito com o professor.');
+
+INSERT INTO Avaliacoes (estudante_id, turma_id, nota, comentario)
+VALUES (3, 3, 3, 'Professor atencioso, mas a matéria poderia ser mais prática.');
+
+
+-- Populando a tabela Turmas
+INSERT INTO Turmas (disciplina_id, professor_id, semestre)
+VALUES (1, 1, '2022.1');
+
+INSERT INTO Turmas (disciplina_id, professor_id, semestre)
+VALUES (2, 2, '2022.1');
+
+INSERT INTO Turmas (disciplina_id, professor_id, semestre)
+VALUES (3, 3, '2022.1');
+=========================================================

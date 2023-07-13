@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Avaliação - Cadastro e Login</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Avaliação - Cadastro</h1>
+        <form>
+            <input type="text" placeholder="Nome Completo">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Matrícula">
+            <input type="text" placeholder="Curso">
+            <input type="password" placeholder="Senha">
+            <input type="password" placeholder="Confirme a Senha">
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <h1>Sistema de Avaliação - Login</h1>
+        <form>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Senha">
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Avaliações{% endblock %}
+
+{% block content %}
+<h1>Avaliações</h1>
+
+{% if avaliacoes %}
+    <ul>
+    {% for avaliacao in avaliacoes %}
+        <li>
+            <p>Estudante: {{ avaliacao[1] }}</p>
+            <p>Disciplina: {{ avaliacao[2] }}</p>
+            <p>Semestre: {{ avaliacao[3] }}</p>
+            <p>Professor: {{ avaliacao[4] }}</p>
+            <p>Nota: {{ avaliacao[5] }}</p>
+            <p>Comentário: {{ avaliacao[6] }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma avaliação encontrada.</p>
+{% endif %}
+
+{% endblock %}

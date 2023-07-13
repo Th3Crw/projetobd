@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+<form method="POST">
+  <h3 align="center">Cadastrar</h3>
+  <div class="form-group">
+    <label for="Nome">Nome Completo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nome"
+      name="nome"
+      placeholder="Digite Seu Nome Completo"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Email">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Digite Seu Email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Matrícula">Matrícula</label>
+    <input
+      type="matricula"
+      class="form-control"
+      id="matricula"
+      name="matricula"
+      placeholder="Digite Sua Matrícula"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Curso">Curso</label>
+    <input
+      type="curso"
+      class="form-control"
+      id="curso"
+      name="curso"
+      placeholder="Digite o nome do seu Curso"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Senha">Senha</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password1"
+      name="password1"
+      placeholder="Digite Sua Senha"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Confirma_Senha">Confirme sua Senha</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password2"
+      name="password2"
+      placeholder="Confirme sua Senha"
+    />
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+{% endblock %}

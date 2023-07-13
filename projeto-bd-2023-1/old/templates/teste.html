@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Avaliação</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input, textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Avaliação de Disciplinas e Professores</h1>
+        <form>
+            <h2>Cadastrar Avaliação</h2>
+            <input type="text" placeholder="Nome do Estudante">
+            <input type="text" placeholder="Disciplina">
+            <input type="text" placeholder="Professor">
+            <textarea placeholder="Comentário"></textarea>
+            <input type="number" placeholder="Classificação">
+            <button type="submit">Enviar Avaliação</button>
+        </form>
+
+        <h2>Buscar Avaliações</h2>
+        <input type="text" placeholder="Disciplina">
+        <button type="button">Buscar</button>
+
+        <h2>Denunciar Avaliação</h2>
+        <input type="text" placeholder="ID da Avaliação">
+        <textarea placeholder="Motivo da Denúncia"></textarea>
+        <button type="submit">Enviar Denúncia</button>
+    </div>
+</body>
+</html>
